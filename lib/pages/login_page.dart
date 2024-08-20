@@ -13,22 +13,25 @@ class LoginPage extends StatelessWidget {
 
   final Function()? onTap;
 
-
   LoginPage({super.key, required this.onTap});
 
-  void login( BuildContext context) async {
+  void login(BuildContext context) async {
     //auth service
     final authService = AuthService();
 
     //try login
     try {
-      await authService.signInWithEmailPassword(_emailController.text, _pwController.text);
+      await authService.signInWithEmailPassword(
+          _emailController.text, _pwController.text);
     }
 
     //catch error
-    catch(e) {
-      showDialog(context: context, builder: builder)
-
+    catch (e) {
+      showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+                title: Text(e.toString()),
+              ));
     }
   }
 
@@ -86,7 +89,7 @@ class LoginPage extends StatelessWidget {
 
             MyButton(
               text: "Login",
-              onTap: login,
+              onTap: () => login(context),
             ),
 
             const SizedBox(

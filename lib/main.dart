@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:chat_app/auth/auth_gate.dart';
 import 'package:chat_app/auth/login_or_register.dart';
 import 'package:chat_app/firebase_options.dart';
 import 'package:chat_app/themes/light_mode.dart';
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginOrRegister(),
+      home: AuthGate(),
       theme: lightMode,
     );
   }
